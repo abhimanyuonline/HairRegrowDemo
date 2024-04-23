@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameplayActivity : MonoBehaviour
@@ -6,6 +8,8 @@ public class GameplayActivity : MonoBehaviour
     private float cuttingFactor = 0.05f;
     [SerializeField]
     private float maxHairLength = 6.0f;
+    [SerializeField]
+    private  List<Transform> _hairTrans = new List<Transform>();
 
     public void HairCuttingActtivity(Transform obj)
     {
@@ -25,16 +29,21 @@ public class GameplayActivity : MonoBehaviour
     {
         SpriteRenderer spriteRenderer = obj.GetComponent<SpriteRenderer>();
         BoxCollider collider = obj.GetComponent<BoxCollider>();
-
-        if (spriteRenderer.size.y > 1)
+        Debug.Log("obj" + obj.name + " _ " + spriteRenderer.size.y);
+        if (spriteRenderer.size.y >= 1)
         {
+            Debug.Log("I was");
+
             spriteRenderer.size = new Vector2(spriteRenderer.size.x, spriteRenderer.size.y - cuttingFactor);
             collider.size = new Vector3(spriteRenderer.size.x, spriteRenderer.size.y, collider.size.z);
             collider.center = new Vector3(collider.center.x, (-1) * spriteRenderer.size.y / 2, collider.center.z);
         }
         else
         {
+            Debug.Log("I supposed to");
             spriteRenderer.enabled = false;
+            collider.enabled = false;
+            _hairTrans.Add(obj.transform);
         }
 
     }
@@ -52,7 +61,19 @@ public class GameplayActivity : MonoBehaviour
             collider.size = new Vector3(spriteRenderer.size.x, spriteRenderer.size.y, collider.size.z);
             collider.center = new Vector3(collider.center.x, (-1) * spriteRenderer.size.y / 2, collider.center.z);
         }
+    }
 
-
+    public void ActiveAllHairCollider() { 
+        foreach (Transform trans in _hairTrans)
+        {
+            trans.GetComponent<Collider>().enabled = true;
+        }
+    }
+    public void DeactiveAllHairCollider()
+    {
+        foreach (Transform trans in _hairTrans)
+        {
+            trans.GetComponent<Collider>().enabled = false;
+        }
     }
 }
