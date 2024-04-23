@@ -28,16 +28,10 @@ public class TouchHandler : MonoBehaviour
                     UpdatePlayerActivity(ActivitySelectionManager.Instance._selectedActivity, transform);
                 }
             }
-            else
-            {
-                Touch myTouch = Input.GetTouch(0);
-
-            }
         }
     }
     public void UpdatePlayerActivity(int activityId, Transform transform)
     {
-        Debug.Log("activityId" + activityId);
         switch (activityId)
         {
             case 0:

@@ -1,5 +1,4 @@
 using UnityEngine;
-
 public class ActivitySelectionManager : MonoBehaviour
 {
     public static ActivitySelectionManager Instance;

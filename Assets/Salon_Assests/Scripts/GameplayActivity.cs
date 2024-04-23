@@ -29,18 +29,14 @@ public class GameplayActivity : MonoBehaviour
     {
         SpriteRenderer spriteRenderer = obj.GetComponent<SpriteRenderer>();
         BoxCollider collider = obj.GetComponent<BoxCollider>();
-        Debug.Log("obj" + obj.name + " _ " + spriteRenderer.size.y);
         if (spriteRenderer.size.y >= 1)
         {
-            Debug.Log("I was");
-
             spriteRenderer.size = new Vector2(spriteRenderer.size.x, spriteRenderer.size.y - cuttingFactor);
             collider.size = new Vector3(spriteRenderer.size.x, spriteRenderer.size.y, collider.size.z);
             collider.center = new Vector3(collider.center.x, (-1) * spriteRenderer.size.y / 2, collider.center.z);
         }
         else
         {
-            Debug.Log("I supposed to");
             spriteRenderer.enabled = false;
             collider.enabled = false;
             _hairTrans.Add(obj.transform);
