@@ -64,6 +64,7 @@ public class GameplayActivity : MonoBehaviour
         {
             trans.GetComponent<Collider>().enabled = true;
         }
+        _hairTrans.Clear();
     }
     public void DeactiveAllHairCollider()
     {
