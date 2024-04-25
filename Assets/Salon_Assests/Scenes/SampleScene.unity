@@ -8523,7 +8523,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f38c19ef464bcaf438c97cc54e74ca37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cuttingFactor: 0.53
+  cuttingFactor: 0.79
   maxHairLength: 6
   _hairTrans: []
 --- !u!1 &1680419864
@@ -10125,7 +10125,7 @@ MonoBehaviour:
     m_Left: 10
     m_Right: 10
     m_Top: 10
-    m_Bottom: 10
+    m_Bottom: 25
   m_ChildAlignment: 7
   m_Spacing: 20
   m_ChildForceExpandWidth: 1
