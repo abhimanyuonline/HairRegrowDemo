@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using UnityEngine;
+
 
 public class TouchHandler : MonoBehaviour
 {
@@ -7,6 +9,7 @@ public class TouchHandler : MonoBehaviour
 
     [SerializeField]
     private GameplayActivity _gamePlayActivity;
+
     private void Awake()
     {
         _camera = Camera.main;
@@ -45,4 +48,5 @@ public class TouchHandler : MonoBehaviour
                 break;
         }
     }
+    
 }
